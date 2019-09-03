@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import SharedCode from 'SharedCode'
 
+const sharedCode = SharedCode.com.jetbrains.handson.mpp.mobile;
+
 function App() {
 
   function callAPI() {
@@ -14,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <button style={buttonStyle} onClick={callAPI}>Call API</button>
+        Kotlin Rocks on {sharedCode.platformName()}
       </header>
     </div>
   );
