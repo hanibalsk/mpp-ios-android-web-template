@@ -1,0 +1,73 @@
+apply plugin: 'org.jetbrains.kotlin.multiplatform'
+apply plugin: 'kotlinx-serialization'
+
+repositories {
+    jcenter()
+    google()
+    mavenCentral()
+}
+
+group 'com.example'
+version '0.0.1'
+
+apply plugin: 'maven-publish'
+
+kotlin {
+    targets {
+        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? presets.iosArm64 : presets.iosX64
+
+        fromPreset(iOSTarget, 'ios')
+
+        fromPreset(presets.jvm, 'android')
+
+        fromPreset(presets.js, 'js')
+    }
+
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation kotlin('stdlib-common')
+                implementation "io.ktor:ktor-client:1.2.3"
+                implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core-common:1.2.2"
+                implementation "io.ktor:ktor-client-json:1.2.3"
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.11.1"
+                implementation "com.squareup.sqldelight:runtime-metadata:1.1.3"
+                implementation "io.ktor:ktor-client-logging-jvm:1.0.1"
+            }
+
+            commonTest {
+                dependencies {
+                    implementation kotlin('test-common')
+                    implementation kotlin('test-annotations-common')
+                }
+            }
+            jsMain {
+                dependencies {
+                    implementation kotlin('stdlib-js')
+                }
+            }
+            androidMain {
+                dependencies {
+                    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+                    implementation "io.ktor:ktor-client-android:1.2.3"
+                    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.2.2"
+                    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.2.2"
+                }
+            }
+            androidTest {
+                dependencies {
+                    implementation 'org.jetbrains.kotlin:kotlin-stdlib'
+                }
+            }
+            jsTest {
+                dependencies {
+                    implementation kotlin('test-js')
+                }
+            }
+            iosMain {
+            }
+            iosTest {
+            }
+        }
+    }
+}
