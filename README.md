@@ -4,10 +4,10 @@ This is a project what I trying to practice how to Sharing code between iOS, And
 
 
 <p>
-<img src="args/android-and-ios.png" height="400">
+<img src="arts/android-and-ios.png" height="400">
 </p>
 <p>
-<img src="args/web.png" height="400">
+<img src="arts/web.png" height="400">
 </p>
 
 
