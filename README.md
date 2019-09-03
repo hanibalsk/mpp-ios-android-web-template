@@ -6,6 +6,8 @@ This is a project what I trying to practice how to Sharing code between iOS, And
 <p>
 <img src="arts/android-and-ios.png" height="400">
 </p>
+***Images from https://play.kotlinlang.org/hands-on/Targeting%20iOS%20and%20Android%20with%20Kotlin%20Multiplatform/01_Introduction***
+
 <p>
 <img src="arts/web.png" height="400">
 </p>
