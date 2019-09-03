@@ -8,8 +8,8 @@ const sharedCode = SharedCode.com.jetbrains.handson.mpp.mobile;
 function App() {
 
   function callAPI() {
-      console.log("call API")
-      var sharedCode = SharedCode
+    console.log("call API")
+    var sharedCode = SharedCode
     console.log("platform name " + sharedCode.com.jetbrains.handson.mpp.mobile.platformName())
   }
 
